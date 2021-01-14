@@ -5,8 +5,6 @@ import {IconButton, List, ListItem, ListItemText, SwipeableDrawer} from '@materi
 import {Menu} from '@material-ui/icons'
 import {Link} from 'react-router-dom'
 
-
-
 const useStyles = makeStyles({
   icon: {
     marginRight: '10px',
@@ -25,8 +23,8 @@ const useStyles = makeStyles({
     display: 'block',
     textDecorationColor: 'none',
     color: 'black',
-    border: 'none',
-  },
+    border: 'none'
+  }
 });
 
 export default function SwipeableTemporaryDrawer() {
@@ -49,12 +47,14 @@ export default function SwipeableTemporaryDrawer() {
     })} role="presentation" onClick={toggleDrawer(anchor, false)} onKeyDown={toggleDrawer(anchor, false)}>
     <List>
       {
-        [<Link to='/' className={classes.option}>Weather by city name</Link>,
-        <Link to='/geo' className={classes.option}>Weather by geographical coordinates</Link>,
+        [
+          <Link to='/' className={classes.option}>Weather by city name</Link>,
+          <Link to='/geo' className={classes.option}>Weather by geographical coordinates</Link>,
           <Link to='/dfc' className={classes.option}>Forecast on 5 days</Link>,
-             <Link to='/city' className={classes.option}>Search for information about the city</Link>,
-             <Link to='/geos' className={classes.option}>Search for information about the geo-coordinates</Link>].map((text, index) => (<ListItem button="button" key={text}>
-            <ListItemText primary={text}/>
+          <Link to='/city' className={classes.option}>Search for information about the city</Link>,
+          <Link to='/geos' className={classes.option}>Search for information about the geo-coordinates</Link>
+        ].map((text, index) => (<ListItem button="button" key={text}>
+          <ListItemText primary={text}/>
         </ListItem>))
       }
     </List>
@@ -62,11 +62,9 @@ export default function SwipeableTemporaryDrawer() {
 
   return (<div>
     <React.Fragment key={'left'}>
-      <IconButton  className={classes.icon} onClick={toggleDrawer('left', true)}><Menu/></IconButton>
+      <IconButton className={classes.icon} onClick={toggleDrawer('left', true)}><Menu/></IconButton>
       <SwipeableDrawer anchor={'left'} open={state['left']} onClose={toggleDrawer('left', false)} onOpen={toggleDrawer('left', true)}>
-
-          {list('left')}
-
+        {list('left')}
       </SwipeableDrawer>
     </React.Fragment>
   </div>);
